@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dfire.soa.item.mapper.SalesDataAllMapper">
+    <resultMap id="BaseResultMap" type="com.dfire.soa.item.bo.SalesDataAll">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="mall_entity_id" jdbcType="VARCHAR" property="mallEntityId" />
+        <result column="shop_entity_id" jdbcType="VARCHAR" property="shopEntityId" />
+        <result column="user_sales_amount" jdbcType="BIGINT" property="userSalesAmount" />
+        <result column="audit_sales_count" jdbcType="INTEGER" property="auditSalesCount" />
+        <result column="audit_sales_amount" jdbcType="BIGINT" property="auditSalesAmount" />
+        <result column="book_sales_amount" jdbcType="BIGINT" property="bookSalesAmount" />
+        <result column="user_sales_count" jdbcType="INTEGER" property="userSalesCount" />
+        <result column="date" jdbcType="VARCHAR" property="date" />
+        <result column="is_valid" jdbcType="TINYINT" property="isValid" />
+        <result column="create_user" jdbcType="VARCHAR" property="createUser" />
+        <result column="create_time" jdbcType="BIGINT" property="createTime" />
+        <result column="op_user" jdbcType="VARCHAR" property="opUser" />
+        <result column="op_time" jdbcType="BIGINT" property="opTime" />
+        <result column="last_ver" jdbcType="SMALLINT" property="lastVer" />
+        <result column="status" jdbcType="TINYINT" property="status" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, mall_entity_id, shop_entity_id, user_sales_amount, audit_sales_count, audit_sales_amount, 
+        book_sales_amount, user_sales_count, date, is_valid, create_user, create_time, op_user, 
+        op_time, last_ver, status
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select 
+        <include refid="Base_Column_List" />
+        from sales_data_all
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+</mapper>
